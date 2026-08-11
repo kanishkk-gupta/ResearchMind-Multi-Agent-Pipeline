@@ -1,0 +1,47 @@
+create_react_agent: not used anymore in the production and moved to langchain classic and it will be removed till december 2026 as written on the doccumentation
+
+create_agent
+
+create_react_agent code :
+
+def build_search_agent():
+    prompt = hub.pull("hwchase17/react")
+    agent = create_react_agent(llm=llm, tools=[web_search], prompt=prompt)
+    return AgentExecutor(
+        agent=agent,
+        tools=[web_search],
+        verbose=True,
+        max_iterations=4,
+        handle_parsing_errors=True,
+    )
+
+OLD LLMS WERE NOT VERY SMART THAT THEY WOULD KNOW WHICH TOOL TO CALL SO WE HAVE TO WRITE WHICH TOOL TO CALL, LATEST MODELS KNOW NOW THAT WHICH TOOL THEY HAVE TO CALL
+
+create_agent code : this will be using langgraph
+
+def build_search_agent():
+    return create_agent(
+        model=llm,
+        tools=[web_search],
+    )
+
+create_react_agent : What the prompt did ? Tell LLM about tools -> Force a text format for parsing -> Teach the think —> act —> observe loop
+outputs :
+{
+"input": "What is the capital of France ?"
+"output": "The capital of France is Paris."
+} 
+
+create_agent: Tools are passed as function definitions in the API call itself — the LLM sees them natively
+LLM returns structured tool_call objects — no text to parse
+LangGraph's state machine handles the loop — the LLM just responds naturally
+
+outputs: converts everything to humanmessage type
+{
+    "messages": [
+        HumanMessage(content="What is the capital of France?"),
+        AIMessage(content="", tool_calls=[{"name": "web_search", ...}]),
+        ToolMessage(content="Title: Capital of France - Wikipedia..."),
+        AIMessage(content="The capital of France is Paris.")
+    ]
+}

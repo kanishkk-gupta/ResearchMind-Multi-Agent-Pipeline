@@ -1,0 +1,151 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .label { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .small { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #374151; }
+      .node { fill: #f8fafc; stroke: #3b82f6; stroke-width: 3; rx: 18; }
+      .agent { fill: #eef2ff; stroke: #4f46e5; stroke-width: 3; rx: 18; }
+      .tool { fill: #f8fafc; stroke: #3b82f6; stroke-width: 2.5; stroke-dasharray: 8 8; rx: 16; }
+      .shared { fill: #ecfdf5; stroke: #22c55e; stroke-width: 3; rx: 18; }
+      .writer { fill: #fff7ed; stroke: #f59e0b; stroke-width: 3; rx: 18; }
+      .critic { fill: #fff1f2; stroke: #f97316; stroke-width: 3; rx: 18; }
+      .final { fill: #ecfdf5; stroke: #22c55e; stroke-width: 3; rx: 18; }
+      .line { stroke: #111827; stroke-width: 3; fill: none; }
+      .dashed { stroke: #374151; stroke-width: 2.5; stroke-dasharray: 8 8; fill: none; }
+      .icon { fill: #111827; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="980" fill="#f3f4f6"/>
+
+  <g>
+    <rect x="60" y="120" width="190" height="190" class="node"/>
+    <text x="155" y="210" text-anchor="middle" class="label">Research</text>
+    <text x="155" y="238" text-anchor="middle" class="label">Topic</text>
+    <text x="155" y="285" text-anchor="middle" class="small">“e.g. Impact of AI on</text>
+    <text x="155" y="305" text-anchor="middle" class="small">healthcare in 2024”</text>
+    <circle cx="130" cy="180" r="26" fill="#1f2937"/>
+    <circle cx="130" cy="180" r="12" fill="#ffffff"/>
+    <path d="M130 147 L130 101 M103 170 L76 170 M157 170 L184 170 M108 150 L90 130 M152 150 L170 130" stroke="#1f2937" stroke-width="4" fill="none"/>
+  </g>
+
+  <g>
+    <rect x="340" y="80" width="570" height="280" class="agent"/>
+    <text x="625" y="118" text-anchor="middle" class="title">1. SEARCH AGENT</text>
+    <text x="625" y="150" text-anchor="middle" class="small">(AgentExecutor + web_search_tool)</text>
+
+    <rect x="430" y="190" width="260" height="120" class="node"/>
+    <text x="560" y="240" text-anchor="middle" class="label">Search Agent</text>
+    <text x="560" y="268" text-anchor="middle" class="small">• Understands topic</text>
+    <text x="560" y="288" text-anchor="middle" class="small">• Uses web search tool</text>
+    <text x="560" y="308" text-anchor="middle" class="small">• Fetches real-time results</text>
+
+    <g>
+      <circle cx="420" cy="260" r="28" fill="#ffffff" stroke="#1f2937" stroke-width="3"/>
+      <circle cx="420" cy="260" r="8" fill="#1f2937"/>
+      <path d="M420 228 L420 198 M392 260 L362 260 M448 260 L478 260 M397 235 L379 217 M443 235 L461 217" stroke="#1f2937" stroke-width="3" fill="none"/>
+    </g>
+  </g>
+
+  <g>
+    <rect x="980" y="80" width="350" height="220" class="tool"/>
+    <text x="1155" y="118" text-anchor="middle" class="title">TOOL 1</text>
+    <text x="1155" y="150" text-anchor="middle" class="label">Tavily API</text>
+    <text x="1155" y="176" text-anchor="middle" class="small">(Live Web Search)</text>
+
+    <g>
+      <circle cx="1040" cy="250" r="28" fill="#ffffff" stroke="#1f2937" stroke-width="3"/>
+      <circle cx="1040" cy="250" r="11" fill="#3b82f6"/>
+      <circle cx="1040" cy="250" r="22" fill="none" stroke="#22c55e" stroke-width="3"/>
+      <path d="M1040 222 L1040 188 M1040 312 L1040 278 M1012 250 L978 250 M1068 250 L1102 250" stroke="#1f2937" stroke-width="3" fill="none"/>
+    </g>
+    <text x="1150" y="255" text-anchor="middle" class="label">tavily</text>
+    <text x="1150" y="278" text-anchor="middle" class="small">Real-time</text>
+    <text x="1150" y="298" text-anchor="middle" class="small">Web Results</text>
+  </g>
+
+  <g>
+    <rect x="980" y="390" width="560" height="190" class="shared"/>
+    <text x="1260" y="430" text-anchor="middle" class="title">SHARED MEMORY</text>
+    <text x="1260" y="458" text-anchor="middle" class="label">(STATE)</text>
+
+    <g>
+      <rect x="1015" y="500" width="180" height="56" fill="#d1fae5" stroke="#22c55e" stroke-width="2" rx="8"/>
+      <text x="1105" y="536" text-anchor="middle" class="label">state["search_result"]</text>
+    </g>
+    <g>
+      <rect x="1245" y="500" width="180" height="56" fill="#d1fae5" stroke="#22c55e" stroke-width="2" rx="8"/>
+      <text x="1335" y="536" text-anchor="middle" class="label">state["scraped_content"]</text>
+    </g>
+  </g>
+
+  <g>
+    <rect x="340" y="430" width="570" height="280" class="agent"/>
+    <text x="625" y="468" text-anchor="middle" class="title">2. READER AGENT</text>
+    <text x="625" y="500" text-anchor="middle" class="small">(AgentExecutor + scrape_url_tool)</text>
+
+    <rect x="430" y="540" width="260" height="120" class="node"/>
+    <text x="560" y="590" text-anchor="middle" class="label">Reader Agent</text>
+    <text x="560" y="618" text-anchor="middle" class="small">• Reads URLs from search results</text>
+    <text x="560" y="638" text-anchor="middle" class="small">• Scrapes pages for more info</text>
+    <text x="560" y="658" text-anchor="middle" class="small">• Extracts clean content</text>
+  </g>
+
+  <g>
+    <rect x="980" y="620" width="350" height="200" class="tool"/>
+    <text x="1155" y="658" text-anchor="middle" class="title">TOOL 2</text>
+    <text x="1155" y="690" text-anchor="middle" class="label">BeautifulSoup</text>
+    <text x="1155" y="716" text-anchor="middle" class="small">(Scrape Web Pages)</text>
+
+    <rect x="1065" y="740" width="180" height="56" class="node"/>
+    <text x="1155" y="778" text-anchor="middle" class="label">BS</text>
+  </g>
+
+  <g>
+    <rect x="340" y="760" width="470" height="150" class="writer"/>
+    <text x="575" y="798" text-anchor="middle" class="title">3A. WRITER CHAIN</text>
+    <text x="575" y="830" text-anchor="middle" class="small">(Chain / LLM)</text>
+    <text x="575" y="870" text-anchor="middle" class="small">• Uses search results + scraped content</text>
+    <text x="575" y="892" text-anchor="middle" class="small">• Generates comprehensive draft</text>
+  </g>
+
+  <g>
+    <rect x="860" y="760" width="470" height="150" class="critic"/>
+    <text x="1095" y="798" text-anchor="middle" class="title">3B. CRITIC CHAIN</text>
+    <text x="1095" y="830" text-anchor="middle" class="small">(Chain / LLM)</text>
+    <text x="1095" y="870" text-anchor="middle" class="small">• Reviews the draft</text>
+    <text x="1095" y="892" text-anchor="middle" class="small">• Checks accuracy, depth, clarity</text>
+  </g>
+
+  <g>
+    <rect x="600" y="930" width="400" height="70" class="final"/>
+    <text x="800" y="970" text-anchor="middle" class="title">FINAL OUTPUT</text>
+  </g>
+
+  <g>
+    <path d="M250 214 L340 214" class="line"/>
+    <path d="M910 214 L980 214" class="line"/>
+    <path d="M320 260 L340 260" class="line"/>
+    <path d="M910 260 L980 260" class="line"/>
+    <path d="M910 660 L980 660" class="line"/>
+    <path d="M910 720 L980 720" class="line"/>
+    <path d="M1260 610 L1260 650" class="line"/>
+    <path d="M575 750 L575 710" class="line"/>
+    <path d="M1095 750 L1095 710" class="line"/>
+    <path d="M580 910 L580 930" class="line"/>
+    <path d="M1095 910 L1095 930" class="line"/>
+    <path d="M800 930 L800 980" class="line"/>
+  </g>
+
+  <g>
+    <rect x="70" y="740" width="230" height="130" fill="#f9fafb" stroke="#6b7280" stroke-width="2" stroke-dasharray="10 8" rx="12"/>
+    <text x="185" y="770" text-anchor="middle" class="label">LEGEND</text>
+    <rect x="96" y="788" width="22" height="22" fill="#f8fafc" stroke="#374151" stroke-width="2" rx="4"/>
+    <text x="140" y="806" class="small">Agent (Chain)</text>
+    <rect x="96" y="822" width="22" height="22" fill="#f8fafc" stroke="#374151" stroke-width="2" stroke-dasharray="8 8" rx="4"/>
+    <text x="140" y="840" class="small">Tool (External)</text>
+    <rect x="96" y="856" width="22" height="22" fill="#ecfdf5" stroke="#22c55e" stroke-width="2" rx="4"/>
+    <text x="140" y="874" class="small">Shared Memory</text>
+  </g>
+</svg>

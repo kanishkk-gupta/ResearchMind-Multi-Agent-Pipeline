@@ -1,0 +1,44 @@
+# =========================
+# LLM / AI
+# =========================
+mistralai
+langchain-mistralai
+
+# =========================
+# LangChain / LCEL
+# =========================
+langchain
+langchain-core
+langchain-community
+
+# =========================
+# Agents / Shared State
+# =========================
+langgraph
+
+# =========================
+# Web Search
+# =========================
+tavily-python
+langchain-tavily
+
+# =========================
+# Web Scraping
+# =========================
+beautifulsoup4
+requests
+
+# =========================
+# Environment Variables
+# =========================
+python-dotenv
+
+# =========================
+# Data Validation / Schemas
+# =========================
+pydantic
+
+# =========================
+# HTTP / Async Support
+# =========================
+httpx
