@@ -20,6 +20,10 @@ Powered by LangChain, LangGraph, Mistral AI, Tavily, and FastAPI.
 ![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
 ![Version](https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge)
 
+<br/>
+
+### [🔴 Live Demo Available Here](https://researchmind-multi-agent-pipeline.onrender.com/ui/)
+
 <p>
   <a href="#-installation">Installation</a> •
   <a href="#-how-it-works">How It Works</a> •
@@ -132,7 +136,7 @@ MISTRAL_API_KEY=your_mistral_api_key
 TAVILY_API_KEY=your_tavily_api_key
 ```
 
-### Run
+### Run Locally
 
 ```bash
 uvicorn main:app --reload
@@ -140,6 +144,10 @@ uvicorn main:app --reload
 
 Then open your browser and navigate to:
 **http://localhost:8000/ui**
+
+### Run in Production (Live Demo)
+You can view the fully hosted version of this project at:
+**[https://researchmind-multi-agent-pipeline.onrender.com/ui/](https://researchmind-multi-agent-pipeline.onrender.com/ui/)**
 
 ---
 
