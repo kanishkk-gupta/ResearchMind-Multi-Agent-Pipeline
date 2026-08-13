@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchMind | Multi-Agent AI System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Include Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="background-elements">
+        <div class="glow-orb orange"></div>
+        <div class="glow-orb purple"></div>
+    </div>
+
+    <main class="container">
+        <header class="hero">
+            <div class="badge">MULTI-AGENT AI SYSTEM</div>
+            <h1 class="title">Research<span class="highlight">Mind</span></h1>
+            <p class="description">
+                Four specialized AI agents collaborate - searching, scraping, writing, and critiquing to deliver a polished research report on any topic.
+            </p>
+            
+            <div class="search-container">
+                <input type="text" id="topicInput" placeholder="Enter a research topic (e.g. 'Future of Quantum Computing')" autocomplete="off">
+                <button id="startBtn">Generate Report</button>
+            </div>
+        </header>
+
+        <section class="pipeline-section">
+            <h2 class="section-title">Pipeline</h2>
+            
+            <div class="pipeline-grid">
+                <!-- Agent 1 -->
+                <div class="agent-card" id="agent-1">
+                    <div class="agent-number">01</div>
+                    <div class="agent-content">
+                        <h3>Search Agent</h3>
+                        <p>Gathers recent web information</p>
+                    </div>
+                    <div class="status-indicator"></div>
+                </div>
+
+                <!-- Connector -->
+                <div class="connector" id="conn-1"></div>
+
+                <!-- Agent 2 -->
+                <div class="agent-card" id="agent-2">
+                    <div class="agent-number">02</div>
+                    <div class="agent-content">
+                        <h3>Reader Agent</h3>
+                        <p>Scrapes & extracts deep content</p>
+                    </div>
+                    <div class="status-indicator"></div>
+                </div>
+
+                <!-- Connector -->
+                <div class="connector" id="conn-2"></div>
+
+                <!-- Agent 3 -->
+                <div class="agent-card" id="agent-3">
+                    <div class="agent-number">03</div>
+                    <div class="agent-content">
+                        <h3>Writer Chain</h3>
+                        <p>Drafts the full research report</p>
+                    </div>
+                    <div class="status-indicator"></div>
+                </div>
+
+                <!-- Connector -->
+                <div class="connector" id="conn-3"></div>
+
+                <!-- Agent 4 -->
+                <div class="agent-card" id="agent-4">
+                    <div class="agent-number">04</div>
+                    <div class="agent-content">
+                        <h3>Critic Chain</h3>
+                        <p>Reviews & scores the report</p>
+                    </div>
+                    <div class="status-indicator"></div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="result-section" id="resultSection">
+            <div class="tabs">
+                <button class="tab-btn active" data-target="reportTab">Final Report</button>
+                <button class="tab-btn" data-target="criticTab">Critic Review</button>
+                <button class="tab-btn" data-target="rawTab">Raw Data</button>
+            </div>
+            
+            <div class="tab-content active" id="reportTab">
+                <div class="markdown-body" id="reportContent"></div>
+            </div>
+            
+            <div class="tab-content" id="criticTab">
+                <div class="markdown-body" id="criticContent"></div>
+            </div>
+            
+            <div class="tab-content" id="rawTab">
+                <h4>Scraped Content:</h4>
+                <div class="raw-box" id="scrapedContent"></div>
+                <h4 style="margin-top: 2rem;">Search Results:</h4>
+                <div class="raw-box" id="searchContent"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

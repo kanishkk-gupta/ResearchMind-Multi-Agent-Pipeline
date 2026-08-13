@@ -1,5 +1,5 @@
 from langchain.tools import tool #This is going to be the decorator
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter
 import requests # python libraray that sends http request to the websites
 from bs4 import BeautifulSoup # Lib of python to scrape or to parse HTML 
 from tavily import TavilyClient # we can fetch data with the help of tavilyclient

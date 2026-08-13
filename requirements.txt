@@ -42,3 +42,7 @@ pydantic
 # HTTP / Async Support
 # =========================
 httpx
+
+langchain-text-splitterscle
+fastapi
+uvicorn

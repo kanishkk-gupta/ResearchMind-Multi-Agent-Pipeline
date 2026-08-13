@@ -1,4 +1,5 @@
 from agents import build_reader_agent, build_search_agent, writer_chain, critic_chain
+from langchain_core.messages import ToolMessage
 
 def run_research_pipeline(topic: str) -> dict:
     state={}
@@ -12,7 +13,13 @@ def run_research_pipeline(topic: str) -> dict:
     search_result = search_agent.invoke({ # This is not a react_create_agent this is a create_agent so we have to structure the input in that format only 
         "messages": [("user", f"Find recent, reliable and detailed information about {topic}")]
     })
-    state["search_results"]= search_result["messages"][-1].content
+
+    # Extract raw output directly from web_search tool cannou
+    for message in search_result["messages"]:
+        if isinstance(message, ToolMessage):
+            state["search_results"] = message.content
+            break
+    # state["search_results"]= search_result["messages"][-1].content->  dont use it 
     print("\n Search Result ", state["search_results"])
 
     # Step 2: Reader agent 
@@ -56,8 +63,8 @@ def run_research_pipeline(topic: str) -> dict:
     #Combining the search results - like search agent brought links, reader agent dive deep so we have to combine both
 
     research_combine= (
-        f"SEARCH RESULTS: /n {state['search_results']}\n\n"
-        f"DETAILED SCRAPED CONTENT: /n {state['scraped_content']}"
+        f"SEARCH RESULTS: \n {state['search_results']}\n\n"
+        f"DETAILED SCRAPED CONTENT: \n {state['scraped_content']}"
     )
 
     state["report"]= writer_chain.invoke({
