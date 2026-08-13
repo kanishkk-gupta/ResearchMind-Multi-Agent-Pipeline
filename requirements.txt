@@ -43,6 +43,6 @@ pydantic
 # =========================
 httpx
 
-langchain-text-splitterscle
+langchain-text-splitters
 fastapi
 uvicorn
