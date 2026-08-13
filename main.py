@@ -4,7 +4,7 @@ import threading
 import contextlib
 import queue
 from fastapi import FastAPI
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -22,6 +22,10 @@ app.add_middleware(
 
 # Serve the UI folder statically
 app.mount("/ui", StaticFiles(directory="ui", html=True), name="ui")
+
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/ui")
 
 class TopicRequest(BaseModel):
     topic: str
