@@ -74,9 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            // Note: If you access index.html directly, this will call localhost:8000.
-            // If you open it via localhost:8000/ui, relative paths would also work.
-            const response = await fetch('http://localhost:8000/api/research', {
+            // Use relative URL so it works on localhost AND in production
+            const response = await fetch('/api/research', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ topic })
