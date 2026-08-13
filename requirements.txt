@@ -46,3 +46,4 @@ httpx
 langchain-text-splitters
 fastapi
 uvicorn
+rich
